@@ -41,7 +41,7 @@ class UserResource extends Resource
             'Email' => $record->email,
         ];
     }
-
+    
     public static function form(Form $form): Form
     {
         return $form
@@ -68,7 +68,9 @@ class UserResource extends Resource
                             ->prefixIcon('heroicon-m-envelope')
                             ->columnSpan('full')
                             ->email(),
-
+                        Forms\Components\TextInput::make('phone')
+                            ->required()
+                            ->columnSpan('full'),
                         Forms\Components\TextInput::make('password')
                             ->password()
                             ->confirmed()
@@ -103,6 +105,9 @@ class UserResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('phone')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('avatar_url')
