@@ -126,6 +126,7 @@ class ProfileController extends Controller
                 'status'  => 'success',
                 'message' => 'Profile updated successfully',
                 'data'    => $encryptedData,
+                // Untuk menampilkan user dan data enkripsi
                 // 'data' => $userData,
                 // 'encrypted' => $encryptedData
             ], 200);
