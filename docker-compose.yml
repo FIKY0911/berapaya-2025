@@ -14,6 +14,9 @@ services:
       - PROJECT_NAME=berapaya
     depends_on:
       - db
+    networks:
+      - default
+      - shared_net
 
   nginx:
     build:
@@ -33,6 +36,9 @@ services:
       - ./nginx/ssl:/etc/nginx/ssl:ro
     depends_on:
       - php
+    networks:
+      - default
+      - shared_net
 
   db:
     image: mariadb:10.11
@@ -50,3 +56,12 @@ services:
     volumes:
       - ./db/conf.d:/etc/mysql/conf.d
       - ./db/data:/var/lib/mysql
+    networks:
+      - default
+      - shared_net
+      
+networks:
+  default:
+    driver: bridge
+  shared_net:
+    external: true
