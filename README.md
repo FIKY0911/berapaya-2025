@@ -1,7 +1,5 @@
 ## SETUP
 
-***
-
 - tambahkan di .env
 
 ```
